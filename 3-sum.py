@@ -13,7 +13,7 @@
 import numpy as np 
 import sys
 class Solution:
-    def threeSumClosest(self, arr, target):
+    def ClosestOfSum(self, arr, target):
         arr.sort()                  # sorting will return ascending clossest value while not sorting will return random
         length = len(arr) - 1       # getting the length of the array
         self.min = sys.maxsize      # reference to max value to store the lowest minimum value 
@@ -21,7 +21,7 @@ class Solution:
         for i in range(length):     # Loop through array to add
             j = i + 1               
             k = length
-            while j < k :
+            while j < k :           
                 sum =  arr[i] + arr[j] + arr[k] # sum of items
 
                 # print(arr[i], arr[j], arr[k], '=', sum )
@@ -48,4 +48,4 @@ class Solution:
 # sum = Solution()
 # S = [-1, -2, 1, -4]
 # target = 2
-# print(sum.threeSumClosest(S,target))
+# print(sum.ClosestOfSum(S,target))
