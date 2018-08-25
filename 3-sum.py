@@ -14,30 +14,38 @@ import numpy as np
 import sys
 class Solution:
     def threeSumClosest(self, arr, target):
-        arr.sort()
-        length = len(arr) - 1
-        self.min = sys.maxsize 
-        self.results = None
-        for i in range(length):
-            j = i + 1 
+        arr.sort()                  # sorting will return ascending clossest value while not sorting will return random
+        length = len(arr) - 1       # getting the length of the array
+        self.min = sys.maxsize      # reference to max value to store the lowest minimum value 
+        self.result = None          # reference to result
+        for i in range(length):     # Loop through array to add
+            j = i + 1               
             k = length
             while j < k :
-                sum =  arr[i] + arr[j] + arr[k] 
-                print(arr[i], arr[j], arr[k], '=', sum )
-                clos =  np.abs(sum-target)
-                if clos == 0:
-                    return sum
-                if clos < self.min:
-                    self.min = clos
-                    self.results = sum
-                if sum <=  target:
+                sum =  arr[i] + arr[j] + arr[k] # sum of items
+
+                # print(arr[i], arr[j], arr[k], '=', sum )
+
+                clos =  np.abs(sum-target)      # getting the absoculte closest value 
+
+                if clos == 0:                   # if value is equal to the target 
+                    return sum                  # return sum
+
+                if clos < self.min:             # comparing the previous closest value to the present closest value 
+                    self.min = clos             # if lowser store it 
+                    self.result = sum           # store the sum into results
+
+                if sum <=  target:              # if sum is less than the target increase j if not lower k 
                     j+=1
                 else:
                     k-=1
-        return self.results
+
+        return self.result                      # return the final result
   
 
-sum = Solution()
-S = [-1, -2, 1, -4, 8 , 2]
-target = -3
-print(sum.threeSumClosest(S,target))
+# Sample
+
+# sum = Solution()
+# S = [-1, -2, 1, -4]
+# target = 2
+# print(sum.threeSumClosest(S,target))
