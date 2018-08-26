@@ -16,13 +16,13 @@ class Solution:
             else: 
                 self.resultArr.append(sorted(list(arr[i])) )
                 self.pos.append([i+1]) 
-        print(self.resultArr)
+        # print(self.resultArr)
         return self.pos
 
 # Example
 
 # anag = Solution()
-# strings = [ "abbbaabbbabbbbabababbbbbbbaabaaabbaaababbabbabbaababbbaaabbabaabbaabbabbbbbababbbababbbbaabababba", 
+# string1 = [ "abbbaabbbabbbbabababbbbbbbaabaaabbaaababbabbabbaababbbaaabbabaabbaabbabbbbbababbbababbbbaabababba", 
 #             "abaaabbbabaaabbbbabaabbabaaaababbbbabbbaaaabaababbbbaaaabbbaaaabaabbaaabbaabaaabbabbaaaababbabbaa", 
 #             "babbabbaaabbbbabaaaabaabaabbbabaabaaabbbbbbabbabababbbabaabaabbaabaabaabbaabbbabaabbbabaaaabbbbab", 
 #             "bbbabaaabaaaaabaabaaaaaaabbabaaaabbababbabbabbaabbabaaabaabbbabbaabaabaabaaaabbabbabaaababbaababb", 
@@ -31,6 +31,7 @@ class Solution:
 #             "abbaaababbbabbbbabababbbababbbaaaaabbbbbbaaaabbaaabbbbbbabbabbabbaabbbbaabaabbababbbaabbbaababbaa", 
 #             "aabaaabaaaaaabbbbaabbabaaaabbaababaaabbabbaaaaababaaabaabbbabbababaabababbaabaababbaabbabbbaaabbb" ]
 
-# # strings = [ "cat", "dog", "god", "tca" ]
+# # string2 = [ "cat", "dog", "god", "tca" ]
 
-# print(anag.anagrams(strings))
+# print(anag.anagrams(string1))
+# print(anag.anagrams(string2))
