@@ -5,20 +5,32 @@
 # Output : [[1, 4], [2, 3]]
 
 
-class Anagrams:
-
-    def getList(self, arr):
-        self.resultArr = []                   # reference to result  
-        for i in range(len(arr)) :            # Loop through array of strings
-            j = i + 1                         
-            while j <= len(arr)-1:              
-                if sorted(list(arr[i])) == sorted(list(arr[j])): # list(string) will spilt string into single letters, sort the list and compare them    
-                    self.resultArr.append([i+1,j+1])    # if true append it to the results adding +1 to match he expected output
-                j+=1                        
-        return self.resultArr                 # return the values 
+class Solution:
+ 
+    def anagrams(self, arr):
+        self.resultArr = [] 
+        self.pos = []
+        for i in range(len(arr)) :  
+            if sorted(list(arr[i])) in self.resultArr:  
+                self.pos[self.resultArr.index(sorted(list(arr[i])))].append(i+1)
+            else: 
+                self.resultArr.append(sorted(list(arr[i])) )
+                self.pos.append([i+1]) 
+        print(self.resultArr)
+        return self.pos
 
 # Example
 
-# anag = Anagrams()
-# strings = ['cat', 'dog', 'god', 'tca'] 
-# print(anag.getList(strings))
+# anag = Solution()
+# strings = [ "abbbaabbbabbbbabababbbbbbbaabaaabbaaababbabbabbaababbbaaabbabaabbaabbabbbbbababbbababbbbaabababba", 
+#             "abaaabbbabaaabbbbabaabbabaaaababbbbabbbaaaabaababbbbaaaabbbaaaabaabbaaabbaabaaabbabbaaaababbabbaa", 
+#             "babbabbaaabbbbabaaaabaabaabbbabaabaaabbbbbbabbabababbbabaabaabbaabaabaabbaabbbabaabbbabaaaabbbbab", 
+#             "bbbabaaabaaaaabaabaaaaaaabbabaaaabbababbabbabbaabbabaaabaabbbabbaabaabaabaaaabbabbabaaababbaababb", 
+#             "abbbbbbbbbbbbabaabbbbabababaabaabbbababbabbabaaaabaabbabbaaabbaaaabbaabbbbbaaaabaaaaababababaabab", 
+#             "aabbbbaaabbaabbbbabbbbbaabbababbbbababbbabaabbbbbbababaaaabbbabaabbbbabbbababbbaaabbabaaaabaaaaba", 
+#             "abbaaababbbabbbbabababbbababbbaaaaabbbbbbaaaabbaaabbbbbbabbabbabbaabbbbaabaabbababbbaabbbaababbaa", 
+#             "aabaaabaaaaaabbbbaabbabaaaabbaababaaabbabbaaaaababaaabaabbbabbababaabababbaabaababbaabbabbbaaabbb" ]
+
+# # strings = [ "cat", "dog", "god", "tca" ]
+
+# print(anag.anagrams(strings))

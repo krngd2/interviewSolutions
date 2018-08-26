@@ -13,7 +13,7 @@
 import numpy as np 
 import sys
 class Solution:
-    def ClosestOfSum(self, arr, target):
+    def threeSumClosest(self, arr, target):
         arr.sort()                  # sorting will return ascending clossest value while not sorting will return random
         length = len(arr) - 1       # getting the length of the array
         self.min = sys.maxsize      # reference to max value to store the lowest minimum value 
