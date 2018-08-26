@@ -24,11 +24,14 @@ def install_packages(filepath):
                 installed.append(i)                                 # to save if package is succesfully installed 
             except subprocess.CalledProcessError as err:            # if err/exception 
                 # print('Error while installing ', i , err)         # to print err/exception while program is running 
-                errorWhileInstalling[i] = err                 # to save all packages failed to install 
-    if len(list(errorWhileInstalling.keys())) == 0:                              # if no errors while installing return 'success'             
+                errorWhileInstalling[i] = err                       # to save all packages failed to install 
+
+    if len(list(errorWhileInstalling.keys())) == 0:                 # if no errors while installing return 'success'             
         return 'success'
+
     elif len(alreadyInstalled) == len(dependencies['Dependencies']):    # if all packages are already installed return "All Packages already installed"
         return 'All Packages already installed'
+
     else:                                                           
         print('Failed to install following packages :')             
         for i in list(errorWhileInstalling.keys()):                # print the failed to install packages
